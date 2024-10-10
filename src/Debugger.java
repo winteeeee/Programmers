@@ -13,6 +13,26 @@ public class Debugger {
         return result;
     }
 
+    static String[] listToStringArray(String list) {
+        String[] elements = list.split(",");
+        for (int i = 0; i < elements.length; i++) {
+            elements[i] = getString(elements[i]);
+        }
+
+        return elements;
+    }
+
+    static String getString(String str) {
+        var sb = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != '[' && str.charAt(i) != ']' && str.charAt(i) != '\"' && str.charAt(i) != ' ') {
+                sb.append(str.charAt(i));
+            }
+        }
+
+        return sb.toString();
+    }
+
     static int[][] listTo2DIntArray(String list) {
         String[] elements = list.split("],");
         int[][] result = new int[elements.length][elements[0].split(",").length];
