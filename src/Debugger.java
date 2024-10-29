@@ -42,4 +42,14 @@ public class Debugger {
 
         return result;
     }
+
+    static String[][] listTo2DStringArray(String list) {
+        String[] elements = list.split("],");
+        String[][] result = new String[elements.length][elements[0].split(",").length];
+        for (int i = 0; i < elements.length; i++) {
+            result[i] = listToStringArray(elements[i]);
+        }
+
+        return result;
+    }
 }
